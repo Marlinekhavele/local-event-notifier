@@ -47,25 +47,25 @@ integration_json={
         "label": "location",
         "type": "text",
         "required": True,
-        "default": "Yes"
+        "default": "Berlin"
       },
       {
         "label": "limit",
         "type": "text",
         "required": True,
-        "default": "Yes"
+        "default": "10"
       },
   
       {
         "label": "category",
         "type": "dropdown",
         "required": True,
-        "default": "Low",
-        "options": ["High", "Low"]
+        "default": "Music",
+        "options": ["Music", "Arts", "Sports", "Food", "Business", "Tech", "Health", "Science", "Education", "Fashion", "Film", "Literature", "Religion", "Politics", "Charity", "Community", "Family", "Holiday", "Other"]
       }
  
     ],
-    "tick_url": "URL for subscribing to Telex's clock.",
+    "tick_url": "https://local-event-notifier.vercel.app/api/tick",
     "target_url": "https://ping.telex.im/v1/webhooks/01951fa7-6d0e-753d-ba67-e9ea376bcce4"
   }
 }

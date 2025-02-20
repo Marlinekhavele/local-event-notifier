@@ -27,11 +27,11 @@ lint-changed:
 lint-full-check: lint check-types
 
 serve:
-	cd src && poetry run uvicorn app.main:app --reload --port ${SERVER_PORT}
+	cd local-event-notifier && poetry run uvicorn main:app --reload --port ${SERVER_PORT}
 
 # clean pyc files/dirs
 pyclean:
 	find . -name "*.py[co]" -o -name __pycache__ -exec rm -rf {} +
 
 migrate-local:
-	cd app && poetry run alembic upgrade head
+	cd local-event-notifier && poetry run alembic upgrade head

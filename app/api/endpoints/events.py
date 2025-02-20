@@ -5,6 +5,7 @@ from app.services.events import EventService
 from app.models.events import EventRequest,MonitorPayload
 import logging
 from app.config import Config
+from integration import integration_json
 
 
 logger = logging.getLogger(__name__)
@@ -20,6 +21,10 @@ async def get_events(
     limit: int = Query(5, description="Number of events to fetch")
 ):
     return await EventService.get_formatted_events(city, dma_id, category, limit)
+
+@router.get("/integration")
+async def get_integration_json():
+    return integration_json
 
 
 @router.post("/tick")

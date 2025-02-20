@@ -1,4 +1,4 @@
-{
+integration_json={
   "data": {
     "date": {
       "created_at": "2025-02-19",
@@ -13,26 +13,26 @@
     },
     "integration_category": "Social Media Management",
     "integration_type": "interval",
-    "is_active": true,
+    "is_active": True,
     "output": [
       {
         "label": "output_channel_1",
-        "value": true
+        "value": True
       },
       {
         "label": "output_channel_2",
-        "value": false
+        "value": False
       }
     ],
     "key_features": [
-      "Feature description 1.",
-      "Feature description 2.",
-      "Feature description 3.",
-      "Feature description 4."
+      "Fetches events based on city, and category.",
+      "Sends events to Telex.",
+      "Notifys users of events.",
+      "post events at intervals."
     ],
     "permissions": {
       "monitoring_user": {
-        "always_online": true,
+        "always_online": True,
         "display_name": "Performance Monitor"
       }
     },
@@ -40,26 +40,26 @@
       {
         "label": "interval",
         "type": "text",
-        "required": true,
+        "required": True,
         "default": "* * * * *"
       },
       {
         "label": "location",
         "type": "text",
-        "required": true,
+        "required": True,
         "default": "Yes"
       },
       {
         "label": "limit",
         "type": "text",
-        "required": true,
+        "required": True,
         "default": "Yes"
       },
   
       {
         "label": "category",
         "type": "dropdown",
-        "required": true,
+        "required": True,
         "default": "Low",
         "options": ["High", "Low"]
       }

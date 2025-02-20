@@ -10,11 +10,7 @@ from app.config import Config
 logger = logging.getLogger(__name__)
 
 router = APIRouter()
-@router.get("/")
-def get_home(
-  
-):
-    return "Welcome to Local Event Notifier"
+
 
 @router.get("/events")
 async def get_events(

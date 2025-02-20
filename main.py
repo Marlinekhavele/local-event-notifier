@@ -14,9 +14,14 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+@app.get("/")
+def get_home():
+    return "Welcome to Local Event Notifier"
 
 app.openapi = OpenApiDocumentation(app).custom_openapi  # type: ignore
 app.include_router(api_router, prefix="/api")
+
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000)

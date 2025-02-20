@@ -28,7 +28,7 @@ COPY ./pyproject.toml ./poetry.lock* ./Makefile /app/
 RUN poetry config virtualenvs.create false && poetry install --no-root --no-interaction --no-ansi
 
 # Copy the source code into the container
-COPY ./src /app/
+COPY ./app /
 
 # Set Python path (optional)
 ENV PYTHONPATH=/app

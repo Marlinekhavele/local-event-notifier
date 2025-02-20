@@ -1,16 +1,37 @@
-FROM python:3.10-slim
+FROM python:3.13-slim
 
-ENV POETRY_VERSION=1.6.1
+LABEL maintainer="Marline khavele khavelemarline@gmail.com"
 
-# Install Poetry
-RUN pip install "poetry==$POETRY_VERSION"
+# Install build dependencies for psycopg2
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    gcc \
+    python3-dev \
+    curl \
+    && apt-get clean
 
-# Copy project files
-WORKDIR /app
-COPY . .
+# Install Poetry (ensure it's available)
+RUN curl -sSL https://install.python-poetry.org | python3 -
+# Ensure Poetry is added to PATH
+ENV PATH="/root/.local/bin:$PATH"
 
-# Install dependencies
-RUN poetry install --no-dev --no-interaction --no-ansi
+# Verify that Poetry is installed
+RUN poetry --version
 
-# Command to run your application
-CMD ["poetry", "run", "python", "app.main:app"]
+# Set working directory
+WORKDIR /app/
+
+# Copy necessary project files
+COPY ./pyproject.toml ./poetry.lock* ./Makefile /app/
+
+# Install dependencies via Poetry
+RUN poetry config virtualenvs.create false && poetry install --no-root --no-interaction --no-ansi
+
+# Copy the source code into the container
+COPY ./src /app/
+
+# Set Python path (optional)
+ENV PYTHONPATH=/app
+
+# Set the command to run the application (with default settings)
+CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000", "app.main:app"]   

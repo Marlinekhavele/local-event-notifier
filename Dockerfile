@@ -2,7 +2,7 @@ FROM python:3.13-slim
 
 LABEL maintainer="Marline khavele khavelemarline@gmail.com"
 
-# Install build dependencies for psycopg2
+# Install build dependencies
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     gcc \
@@ -12,16 +12,20 @@ RUN apt-get update && apt-get install -y \
 
 # Install Poetry (ensure it's available)
 RUN curl -sSL https://install.python-poetry.org | python3 -
+
 # Ensure Poetry is added to PATH
 ENV PATH="/root/.local/bin:$PATH"
 
 # Verify that Poetry is installed
 RUN poetry --version
 
-# Set working directory
+# Set the working directory
 WORKDIR /app/
 
-# Copy necessary project files
+# Ensure Python looks in /app for modules
+ENV PYTHONPATH=/app
+
+# Copy necessary project files 
 COPY ./pyproject.toml ./poetry.lock* ./Makefile /app/
 
 # Install dependencies via Poetry
@@ -30,8 +34,5 @@ RUN poetry config virtualenvs.create false && poetry install --no-root --no-inte
 # Copy the source code into the container
 COPY ./app /app/
 
-# Set Python path (optional)
-ENV PYTHONPATH=/app
-
-# Set the command to run the application (with default settings)
+# Set the command to run the application
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

@@ -5,8 +5,8 @@ integration_json={
       "updated_at": "2025-02-19"
     },
     "descriptions": {
-      "app_description": "A brief description of the application functionality.",
-      "app_logo": "https://search.brave.com/images?q=location+free+lcons&source=web",
+      "app_description": "Fetches local events based on chosen city or location and posts updates on the Telex channel",
+      "app_logo": "https://my-portfolio-343207.web.app/MyLogo2.png",
       "app_name": "Local event Notifier.",
       "app_url": "URL to the application or service.", 
       "background_color": "#HEXCODE"

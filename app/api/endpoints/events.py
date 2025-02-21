@@ -33,11 +33,9 @@ async def post_tick(payload: MonitorPayload):
     city = [s.default for s in payload.settings if s.label.startswith("city")]
     category = [s.default for s in payload.settings if s.label.startswith("category")]
     limit = [s.default for s in payload.settings if s.label.startswith("limit")]
-    events = await EventService.get_formatted_events(
-        city[0], "", category[0], limit[0]  # remove this line
-    )
+    events = await EventService.get_formatted_events(city[0], "", category[0], limit[0])
     json = {
-        "message": events,
+        "message": str(events),
         "username": "Local Notifier",
         "event_name": "Notifier Event",
         "status": "success",

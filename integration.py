@@ -11,7 +11,7 @@ integration_json={
       "app_url": "https://local-event-notifier.onrender.com/api/integration.json", 
       "background_color": "#ffffff",
     },
-    "integration_category": "Social Media Management",
+    "integration_category": "Monitoring & Logging",
     "integration_type": "interval",
     "is_active": True,
     "key_features": [
@@ -28,7 +28,7 @@ integration_json={
         "default": "* * * * *"
       },
       {
-        "label": "location",
+        "label": "city",
         "type": "text",
         "required": True,
         "default": "Berlin"

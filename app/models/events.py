@@ -1,5 +1,7 @@
+from typing import List, Optional
+
 from pydantic import BaseModel
-from typing import Optional, List 
+
 
 class Setting(BaseModel):
     label: str
@@ -7,16 +9,19 @@ class Setting(BaseModel):
     required: bool
     default: str
 
+
 class MonitorPayload(BaseModel):
     channel_id: Optional[str] = None
     return_url: Optional[str] = None
     settings: List[Setting]
+
 
 class Event(BaseModel):
     title: str
     url: str
     start_time: Optional[str] = None
     venue: str
+
 
 class EventRequest(BaseModel):
     city: Optional[str] = None

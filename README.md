@@ -14,7 +14,8 @@ Before you begin, ensure you have the following installed on your machine:
 - [Docker](https://www.docker.com/)
 - [Poetry ](https://python-poetry.org/)
 - [Make](https://makefiletutorial.com/)
-- [Pre-commit](https://pre-commit.com/)(for managing hooks) 
+- [Pre-commit](https://pre-commit.com/)(for managing hooks)
+- [Pytest](https://docs.pytest.org/en/stable/)- Testing framework
 
 ### Getting Started Installation & Local setup
 Clone the repository
@@ -193,5 +194,11 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload
   "status": "success"
   }
   ```
-  **Response2**: On  the telex'x UI, the response look like:
+  **Response2**: On  the telex  UI, the response look like:
   ![alt text](<Screenshot 2025-02-21 at 17.16.04.png>)
+
+## Tests
+To run  unit tests locally
+```shell
+pytest
+```

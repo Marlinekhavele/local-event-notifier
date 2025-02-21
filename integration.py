@@ -14,34 +14,18 @@ integration_json={
     "integration_category": "Social Media Management",
     "integration_type": "interval",
     "is_active": True,
-    "output": [
-      {
-        "label": "output_channel_1",
-        "value": True
-      },
-      {
-        "label": "output_channel_2",
-        "value": False
-      }
-    ],
     "key_features": [
       "Fetches events based on city, and category.",
       "Sends events to Telex.",
       "Notifys users of events.",
       "post events at intervals."
     ],
-    "permissions": {
-      "monitoring_user": {
-        "always_online": True,
-        "display_name": "Performance Monitor"
-      }
-    },
     "settings": [
       {
         "label": "interval",
         "type": "text",
         "required": True,
-        "default": "*/5 * * * *"
+        "default": "* * * * *"
       },
       {
         "label": "location",

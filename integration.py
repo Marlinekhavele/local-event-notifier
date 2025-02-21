@@ -8,7 +8,7 @@ integration_json={
       "app_description": "Fetches local events based on chosen city or location and posts updates on the Telex channel",
       "app_logo": "https://my-portfolio-343207.web.app/MyLogo2.png",
       "app_name": "Local event Notifier",
-      "app_url": "URL to the application or service.", 
+      "app_url": "https://local-event-notifier.onrender.com/api/integration.json", 
       "background_color": "#ffffff",
     },
     "integration_category": "Social Media Management",

@@ -7,3 +7,5 @@ class Config:
     TICKET_MASTER_API_KEY = os.getenv("TICKET_MASTER_API_KEY")
     TELEX_WEBHOOK_URL = os.getenv("TELEX_WEBHOOK_URL")
     TICKET_MASTER_API_URL = os.getenv("TICKET_MASTER_API_URL")
+    # BREVO_API_KEY = os.getenv("BREVO_API_KEY")
+    # BREVO_RECIPIENTS = os.getenv("BREVO_RECIPIENTS")

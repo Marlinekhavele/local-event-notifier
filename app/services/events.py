@@ -49,3 +49,4 @@ class EventService:
             logger.error(f"Error sending events to Telex: {e.response.status_code} - {e.response.text}")
         except Exception as e:
             logger.error(f"Unexpected error: {str(e)}")
+            

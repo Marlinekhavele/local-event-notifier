@@ -8,8 +8,8 @@ class Setting(BaseModel):
     default: str
 
 class MonitorPayload(BaseModel):
-    channel_id: str
-    return_url: str
+    channel_id: Optional[str] = None
+    return_url: Optional[str] = None
     settings: List[Setting]
 
 class Event(BaseModel):

@@ -42,7 +42,7 @@ async def post_tick(payload: MonitorPayload):
         "message": str(events),
         "username": "Local Notifier",
         "event_name": "Notifier Event",
-        "status": "error"}
+        "status": "success"}
     
     async with httpx.AsyncClient() as client:
         response=await client.post(Config.TELEX_WEBHOOK_URL, json=json)

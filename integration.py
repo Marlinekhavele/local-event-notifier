@@ -9,7 +9,7 @@ integration_json={
       "app_logo": "https://my-portfolio-343207.web.app/MyLogo2.png",
       "app_name": "Local event Notifier",
       "app_url": "https://local-event-notifier.onrender.com/api/integration.json", 
-      "background_color": "#ffffff",
+      "background_color": "#fff",
     },
     "integration_category": "Monitoring & Logging",
     "integration_type": "interval",
@@ -25,7 +25,7 @@ integration_json={
         "label": "interval",
         "type": "text",
         "required": True,
-        "default": "* * * * *"
+        "default": "0 * * * *"
       },
       {
         "label": "city",

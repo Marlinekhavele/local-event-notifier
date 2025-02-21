@@ -41,7 +41,7 @@ integration_json={
         "label": "interval",
         "type": "text",
         "required": True,
-        "default": "* * * * *"
+        "default": "*/5 * * * *"
       },
       {
         "label": "location",

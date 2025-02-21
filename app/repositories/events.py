@@ -15,14 +15,10 @@ class EventRepository:
     """
 
     @staticmethod
-    async def fetch_events(
-        city: str = None, dma_id: str = None, category: str = None, limit: int = 5
-    ):
+    async def fetch_events(city: str = None, category: str = None, limit: int = 5):
         params = {"apikey": api_key, "size": limit, "sort": "date,asc"}
         if city:
             params["city"] = city
-        if dma_id:
-            params["dmaId"] = dma_id
         if category:
             params["classificationName"] = category
 

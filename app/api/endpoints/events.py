@@ -16,11 +16,10 @@ router = APIRouter()
 @router.get("/events")
 async def get_events(
     city: str = Query(None, description="City name"),
-    dma_id: str = Query(None, description="DMA ID"),
     category: str = Query(None, description="Event category"),
     limit: int = Query(5, description="Number of events to fetch"),
 ):
-    return await EventService.get_formatted_events(city, dma_id, category, limit)
+    return await EventService.get_formatted_events(city, category, limit)
 
 
 @router.get("/integration.json")
@@ -33,7 +32,7 @@ async def post_tick(payload: MonitorPayload):
     city = [s.default for s in payload.settings if s.label.startswith("city")]
     category = [s.default for s in payload.settings if s.label.startswith("category")]
     limit = [s.default for s in payload.settings if s.label.startswith("limit")]
-    events = await EventService.get_formatted_events(city[0], "", category[0], limit[0])
+    events = await EventService.get_formatted_events(city[0], category[0], limit[0])
     json = {
         "message": str(events),
         "username": "Local Notifier",

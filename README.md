@@ -153,8 +153,34 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload
   ```
 - **URL**: `/tick` 
 - **Method**: `POST`
-- **Body**: 
-- **Response1**:
+- **Body**:
+```json
+{
+  "channel_id": "string",
+  "return_url": "string",
+  "settings": [
+    {
+      "label": "city",
+      "type": "string",
+      "required": true,
+      "default": "Berlin"
+    },
+ {
+      "label": "category",
+      "type": "string",
+      "required": true,
+      "default": "Music"
+    },
+ {
+      "label": "limit",
+      "type": "string",
+      "required": true,
+      "default": "10"
+    }
+  ]
+}
+```
+- **Response**:
   ```json
     {
   "message": [
